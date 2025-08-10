@@ -1,5 +1,4 @@
-// JS/inicio.js
-// Importaciones de Firebase
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { 
     getAuth, 
@@ -14,19 +13,18 @@ import {
     query, 
     collection, 
     where,
-    getDocs,
     writeBatch,
     setDoc,
     Timestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// Importar configuración de Firebase
-import { firebaseConfig } from '../JS/config.js';
-
-// Inicializar Firebase
+// SOLUCIÓN: Ruta corregida para config.js (asegúrate de la estructura)
+import { firebaseConfig } from './config.js';
+// Inicialización
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
 
 // Obtener elementos del DOM
 const googleLoginBtn = document.getElementById('googleLoginBtn');

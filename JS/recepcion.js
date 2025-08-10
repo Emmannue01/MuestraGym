@@ -1,5 +1,5 @@
 // recepcion.js
-import { firebaseConfig } from './firebase-config.js';
+import { firebaseConfig } from './config.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { 
     getFirestore, doc, getDoc, setDoc, 

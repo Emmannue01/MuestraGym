@@ -56,7 +56,7 @@ import {
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 // Importar configuración de Firebase
-import { firebaseConfig } from '../Key/config.js';
+import { firebaseConfig } from './config.js';
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);

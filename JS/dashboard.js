@@ -1,5 +1,5 @@
 // app.js
-import { firebaseConfig } from '../Key/config.js';
+import { firebaseConfig } from './config.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { 
     getFirestore, collection, getDocs, query, orderBy, limit, addDoc, Timestamp, doc, getDoc, where, updateDoc, deleteDoc
