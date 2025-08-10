@@ -1,4 +1,5 @@
 
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { 
     getAuth, 
@@ -9,7 +10,8 @@ import {
 import { 
     getFirestore, 
     doc, 
-    getDoc, 
+    getDoc,
+    getDocs, 
     query, 
     collection, 
     where,
@@ -131,21 +133,21 @@ onAuthStateChanged(auth, async (user) => {
                 console.log(`Usuario autenticado con rol: ${userRole}`);
                 switch (userRole) {
                     case 'administrador': 
-                        window.location.href = 'HTML/dashboard.html'; 
+                        window.location.href = "../HTML/dashboard.html"; 
                         break;
                     case 'recepcion': 
-                        window.location.href = 'HTML/recepcion.html'; 
+                        window.location.href = "../HTML/recepcion.html"; 
                         break;
                     case 'entrenador': 
-                        window.location.href = 'HTML/entrenadores.html'; 
+                        window.location.href = "../HTML/entrenadores.html"; 
                         break;
                     default: 
-                        window.location.href = 'HTML/usuarios.html'; 
+                        window.location.href = "../HTML/usuarios.html"; 
                         break;
                 }
             } else {
                 console.log("No se pudieron obtener los datos del usuario. Redirigiendo a portal de cliente.");
-                window.location.href = 'HTML/usuarios.html';
+                window.location.href = "../HTML/usuarios.html";
             }
         } catch (error) {
             console.error("Error al obtener o migrar el rol del usuario:", error);

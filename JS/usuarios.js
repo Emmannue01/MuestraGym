@@ -60,7 +60,7 @@ onAuthStateChanged(auth, async (user) => {
     } else {
         // No hay usuario, lo expulsamos.
         console.log("Usuario no autenticado, redirigiendo a login.");
-        window.location.href = 'index.html';
+        window.location.href = '../HTML/inicio.html';
     }
 });
 

@@ -54,11 +54,11 @@ onAuthStateChanged(auth, async (user) => {
             
         } else {
             console.log("Acceso denegado. El usuario no tiene rol de recepción.");
-            window.location.href = 'index.html';
+            window.location.href = '../HTML/inicio.html';
         }
     } else {
         console.log("Usuario no autenticado, redirigiendo a login.");
-        window.location.href = 'index.html';
+        window.location.href = '../HTML/inicio.html';
     }
 });
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         logoutButton.addEventListener('click', (e) => {
             e.preventDefault();
             signOut(auth).then(() => {
-                window.location.href = 'index.html';
+                window.location.href = '../HTML/inicio.html';
             }).catch(error => console.error('Error al cerrar sesión:', error));
         });
     }
