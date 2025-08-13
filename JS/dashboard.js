@@ -440,6 +440,7 @@ async function cargarMiembrosModal() {
                 Apellido: data.Apellido || "",
                 Email: data.Email || "Sin email",
                 Telefono: data.Telefono || "Sin teléfono",
+                age: data.Edad || "",
                 Tipo: data.Tipo || "Básica",
                 SuscripcionHasta: data.SuscripcionHasta ? data.SuscripcionHasta.toDate() : new Date(),
                 Genero: data.Genero || "Masculino",
@@ -547,13 +548,12 @@ function filtrarMiembros(searchTerm = '') {
 
 function actualizarPaginacion() {
     const totalPages = Math.ceil(filteredMembers.length / membersPerPage);
-    const paginationInfo = document.querySelector('#membersModal .text-sm.text-gray-500');
     const paginationButtons = document.querySelectorAll('#membersModal .flex.space-x-2 button');
     
     const startItem = (currentPage - 1) * membersPerPage + 1;
     const endItem = Math.min(currentPage * membersPerPage, filteredMembers.length);
     
-    paginationInfo.innerHTML = `Mostrando <span class="font-medium">${startItem}</span> a <span class="font-medium">${endItem}</span> de <span class="font-medium">${filteredMembers.length}</span> miembros`;
+    
     
     paginationButtons.forEach((button, index) => {
         if (index === 0) {
@@ -684,8 +684,6 @@ async function editarMiembro(id) {
                             <label class="block text-sm font-medium text-gray-700 mb-1">Rol</label>
                             <select name="rol" class="w-full px-4 py-3 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
                                 <option value="cliente"${member.rol === 'cliente' ? ' selected' : ''}>Cliente</option>
-                                <option value="recepcion"${member.rol === 'recepcion' ? ' selected' : ''}>Recepción</option>
-                                <option value="entrenador"${member.rol === 'entrenador' ? ' selected' : ''}>Entrenador</option>
                                 <option value="administrador"${member.rol === 'administrador' ? ' selected' : ''}>Administrador</option>
                             </select>
                         </div>
@@ -861,7 +859,7 @@ function verMiembro(id) {
                         Email: data.Email || "Sin email",
                         Telefono: data.Telefono || "Sin teléfono",
                         Edad: data.Edad || "",
-                        Tipo: data.Tipo || "Básica",
+                        Tipo: data.Tipo || "",
                         SuscripcionHasta: data.SuscripcionHasta ? data.SuscripcionHasta.toDate() : new Date(),
                         Creado: data.Creado ? data.Creado.toDate() : new Date(),
                         Genero: data.Genero || "",

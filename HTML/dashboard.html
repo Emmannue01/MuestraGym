@@ -48,7 +48,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm">Soporte</p>
-                                <p class="text-xs text-gray-400">18459681@gmail.com</p>
+                                <p class="text-xs text-gray-400">WhatsApp: 745-102-0543</p>
                             </div>
                             <i class="fas fa-headset text-xl"></i>
                         </div>
@@ -130,69 +130,40 @@
 
             <!-- Main content area -->
             <div class="p-6">
-                <!-- Stats Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                    <!-- Total Members -->
-                    <div class="bg-white rounded-lg shadow p-6 flex items-center fade-in">
-                        <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
-                            <i class="fas fa-users text-xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-500">Miembros</p>
-                            <h3 class="text-2xl font-bold" id="totalAccounts">100</h3>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow p-6 flex items-center fade-in">
-                        <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
-                            <i class="fas fa-id-card text-xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-500">Membresías Activas</p>
-                            <h3 class="text-2xl font-bold" id="activeMemberships">100</h3>
-                        </div>
-                    </div>
-
-                    <!-- Expiring Soon -->
-                    <div class="bg-white rounded-lg shadow p-6 flex items-center fade-in">
-                        <div class="p-3 rounded-full bg-yellow-100 text-yellow-600 mr-4">
-                            <i class="fas fa-exclamation-circle text-xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-500">Por Vencer</p>
-                            <h3 class="text-2xl font-bold" id="expiringSoon">100</h3>
-                        </div>
-                    </div>
-
-                    <!-- Monthly Revenue -->
-                    <div class="bg-white rounded-lg shadow p-6 flex items-center fade-in">
-                        <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
-                            <i class="fas fa-wallet text-xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-500">Ingresos Mensuales</p>
-                            <h3 class="text-2xl font-bold" id="monthlyRevenue">100</h3>
-                        </div>
-                    </div>
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 justify-center max-w-4xl mx-auto">
+            <!-- Total Members -->
+            <div class="bg-white rounded-lg shadow p-6 flex items-center fade-in">
+                <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
+                    <i class="fas fa-users text-xl"></i>
                 </div>
+                <div>
+                    <p class="text-gray-500">Miembros</p>
+                    <h3 class="text-2xl font-bold" id="totalAccounts">100</h3>
+                </div>
+            </div>
 
-                <!-- Charts and Tables Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-                    <!-- Membership Types Chart -->
-                    <div class="lg:col-span-2 bg-white rounded-lg shadow p-6 fade-in">
-                        <h3 class="text-lg font-semibold mb-4">Distribución de Membresías</h3>
-                        <div class="chart-container">
-                            <canvas id="membershipChart"></canvas>
-                        </div>
-                    </div>
+            <div class="bg-white rounded-lg shadow p-6 flex items-center fade-in">
+                <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
+                    <i class="fas fa-id-card text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-gray-500">Membresías Activas</p>
+                    <h3 class="text-2xl font-bold" id="activeMemberships">100</h3>
+                </div>
+            </div>
 
-                    <!-- Recent Activities -->
-                    <div class="bg-white rounded-lg shadow p-6 fade-in">
-                        <h3 class="text-lg font-semibold mb-4">Actividad Reciente</h3>
-                        <div class="space-y-4 h-64 overflow-y-auto custom-scrollbar">
-                            <!-- Aquí se llenará dinámicamente con JS -->
-                        </div>
-                    </div>
+            <!-- Expiring Soon -->
+            <div class="bg-white rounded-lg shadow p-6 flex items-center fade-in">
+                <div class="p-3 rounded-full bg-yellow-100 text-yellow-600 mr-4">
+                    <i class="fas fa-exclamation-circle text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-gray-500">Por Vencer</p>
+                    <h3 class="text-2xl font-bold" id="expiringSoon">100</h3>
+                </div>
+            </div>
+                    
                 </div>
 
                 <!-- Members Table -->
@@ -280,16 +251,6 @@
                         </table>
                     </div>
                     <div class="px-6 py-4 border-t flex items-center justify-between">
-                        <div class="text-sm text-gray-500">
-                            Mostrando <span class="font-medium">1</span> a <span class="font-medium">10</span> de <span class="font-medium">124</span> miembros
-                        </div>
-                        <div class="flex space-x-2">
-                            <button class="px-3 py-1 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"><i class="fas fa-chevron-left"></i></button>
-                            <button class="px-3 py-1 rounded-md bg-indigo-600 text-white">1</button>
-                            <button class="px-3 py-1 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">2</button>
-                            <button class="px-3 py-1 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">3</button>
-                            <button class="px-3 py-1 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"><i class="fas fa-chevron-right"></i></button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -316,7 +277,6 @@
                             <label class="block text-sm font-medium text-gray-700 mb-1">Rol</label>
                             <select id="nuevoMiembroRol" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
                                 <option value="cliente">Cliente</option>
-                                <option value="recepcion">Recepción</option>
                                 <option value="administrador">Administrador</option>
                             </select>
                         </div>
