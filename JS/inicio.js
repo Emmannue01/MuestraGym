@@ -88,7 +88,6 @@ onAuthStateChanged(auth, async (user) => {
                     userData = userDoc.data();
                 }
             }
-
             // 2. Si no se encontró por email, buscar por UID como fallback.
             if (!userData) {
                 console.log("No se encontró por email, buscando por UID...");
@@ -101,64 +100,24 @@ onAuthStateChanged(auth, async (user) => {
                 }
             }
 
-            // 3. Si no se encontró por ningún método, es un usuario nuevo.
-            if (!userData) {
-                console.log("Usuario no encontrado. Creando nuevo registro de cliente.");
-                const userEmail = user.email.toLowerCase();
-                const userDocRef = doc(db, "usuarios", user.uid);
-                const fechaInicio = new Date();
-                const fechaFin = new Date();
-                fechaFin.setMonth(fechaFin.getMonth()); // Membresía de 1 mes por defecto
-
-                const newUser = {
-                    uid: '',
-                    Nombre: user.displayName ? user.displayName.split(' ')[0] : 'Nuevo',
-                    Apellido: user.displayName ? user.displayName.split(' ').slice(1).join(' ') : 'Usuario',
-                    Email: userEmail,
-                    rol: 'cliente',
-                    Tipo: 'Basica',
-                    Creado: Timestamp.fromDate(fechaInicio),
-                    SuscripcionHasta: Timestamp.fromDate(fechaFin),
-                    Telefono: '',
-                    Genero: 'Otro'
-                };
-                
-                await setDoc(userDocRef, newUser);
-                userData = newUser;
-                console.log("Nuevo cliente creado exitosamente.");
-            }
 
             if (userData) {
-                const userRole = userData.rol || 'cliente';
+                const userRole = userData.rol;
                 console.log(`Usuario autenticado con rol: ${userRole}`);
                 switch (userRole) {
                     case 'administrador': 
                         window.location.href = "../HTML/dashboard.html"; 
                         break;
-                    case 'recepcion': 
-                        window.location.href = "../HTML/recepcion.html"; 
-                        break;
-                    case 'entrenador': 
-                        window.location.href = "../HTML/entrenadores.html"; 
-                        break;
-                    default: 
-                        window.location.href = "../HTML/usuarios.html"; 
-                        break;
                 }
             } else {
-                console.log("No se pudieron obtener los datos del usuario. Redirigiendo a portal de cliente.");
-                window.location.href = "../HTML/usuarios.html";
+                console.log('No hay usuario autenticado.');
             }
         } catch (error) {
             console.error("Error al obtener o migrar el rol del usuario:", error);
             showError("No se pudo verificar tu rol. Intenta de nuevo.");
-            // Opcional: cerrar sesión si hay un error crítico
-            // auth.signOut();
             setLoading(false);
         }
-    } else {
-        console.log('No hay usuario autenticado.');
-    }
+    } 
 });
 
 // Evento para el inicio de sesión con Google

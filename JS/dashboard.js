@@ -583,6 +583,7 @@ async function guardarNuevoMiembro() {
     const apellido = form.querySelectorAll('input[type="text"]')[1]?.value.trim() || "";
     const email = form.querySelector('input[type="email"]')?.value.trim().toLowerCase();
     const telefono = form.querySelector('input[type="tel"]')?.value.trim();
+    const age = form.querySelectorAll('input[type="text"]')[2]?.value.trim() || "";
     const tipoSelect = form.querySelector('#tipoMembresia')?.value;
     const rol = form.querySelector('#nuevoMiembroRol')?.value || "cliente";
     let tipo = "Basica";
@@ -614,6 +615,7 @@ async function guardarNuevoMiembro() {
             Telefono: telefono,
             Tipo: tipo,
             Genero: genero,
+            Edad:age,
             Creado: Timestamp.fromDate(new Date(fechaInicio)),
             SuscripcionHasta: Timestamp.fromDate(fechaFin),
             rol: rol,
@@ -716,6 +718,11 @@ async function editarMiembro(id) {
                                 class="w-full px-4 py-3 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         </div>
                         <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Edad</label>
+                            <input type="tel" name="Edad" value="${member.age}" 
+                                class="w-full px-4 py-3 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Membresía</label>
                             <select id="editMemberTipo" name="tipo" class="w-full px-4 py-3 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
                                 <option value="Basica"${member.Tipo.toLowerCase().includes('basica') ? ' selected' : ''}>Básica</option>
@@ -785,6 +792,7 @@ async function editarMiembro(id) {
         const apellido = formData.get('apellido').trim();
         const email = formData.get('email').trim().toLowerCase();
         const telefono = formData.get('telefono').trim();
+        const age = formData.get('Edad').trim();
         const tipo = formData.get('tipo');
         const suscripcionHasta = formData.get('suscripcionHasta');
         const nuevaFechaFin = new Date(suscripcionHasta + 'T00:00:00');
@@ -817,6 +825,7 @@ async function editarMiembro(id) {
                 Apellido: apellido,
                 Email: email,
                 Telefono: telefono,
+                Edad: age,
                 Tipo: tipo,
                 SuscripcionHasta: Timestamp.fromDate(new Date(suscripcionHasta))
             });
@@ -851,6 +860,7 @@ function verMiembro(id) {
                         Apellido: data.Apellido || "",
                         Email: data.Email || "Sin email",
                         Telefono: data.Telefono || "Sin teléfono",
+                        Edad: data.Edad || "",
                         Tipo: data.Tipo || "Básica",
                         SuscripcionHasta: data.SuscripcionHasta ? data.SuscripcionHasta.toDate() : new Date(),
                         Creado: data.Creado ? data.Creado.toDate() : new Date(),
@@ -894,6 +904,11 @@ function mostrarModalVerMiembro(member) {
                     <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
                     <div class="text-gray-900">${member.Telefono}</div>
                 </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Edad</label>
+                    <div class="text-gray-900">${member.age}</div>
+                </div>
+                
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Membresía</label>
                     <div class="text-gray-900">${member.Tipo}</div>
